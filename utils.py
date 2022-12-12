@@ -6,11 +6,11 @@ from torch.utils.data import Dataset
 
 
 class ClassificationDataset(Dataset):
-    def __init__(self, images_filepaths, transform=None):
+    def __init__(self, images_filepaths, classes, transform=None):
 
-        self.images_filepaths = glob.glob('{}/*/*.jpg'.format(images_filepaths))
+        self.images_filepaths = images_filepaths
         self.transform = transform
-        self.classes = os.listdir(images_filepaths)
+        self.classes = classes
         
 
     def __len__(self):
